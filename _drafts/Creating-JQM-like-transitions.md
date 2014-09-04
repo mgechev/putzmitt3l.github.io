@@ -4,6 +4,7 @@ title: Creating JQM-like "Page" transitions
 ---
 <!--
 // TODO: add direct links to repo for TL;Don't Wanna Read section
+// TODO: add direct links to some type of "Demo"
 // TODO: add 'skip to the implementation section'
 // TODO: add links in the text
 // TODO: change "pages" in markup and instructions
@@ -11,7 +12,11 @@ title: Creating JQM-like "Page" transitions
 // TODO: run a spell-check 
 -->
 
+>## "I don't want to read, I want to look at the code"
+>[Link to the demo code](https://github.com/Putzmitt3l/blog-octo-demos/tree/master/jqmliketransitions)
+
 ## Introduction and Motivation
+------------------------------
 
 Hey, you ever used 'JQM'? It's more often refered to as jQuery Mobile <!-- (Note: add link for the site) -->.
 I'm guessing if you are reading this article you have and especially for mobile apps development.
@@ -25,7 +30,7 @@ HTML markup and you have functioning view transitions with more or less native f
 
 
 ## Implementation
-
+-----------------
 
 So here we are at the Implementation part.
 
@@ -120,6 +125,10 @@ Now for the CSS part:
     -moz-transform-style: preserve-3d;
     transform-style: preserve-3d;
 
+    -webkit-transform: translate3d(-1000%,0,0);
+    -moz-transform: translate3d(-1000%,0,0);
+    transform: translate3d(-1000%,0,0);
+
     /* for potential ios flickering */
     /*-webkit-backface-visibility: hidden;
     -webkit-perspective: 1000;*/
@@ -192,14 +201,14 @@ deploying the app and navigating through it. Who knows what kind of unexpected
 behavior you will get.
 Better use the ```translate``` options of the ```transform property```.
 
-4. The time for making the view transitions is .6s seconds. You can think of it
+4. The time for making the view transitions is ```.6s```. You can think of it
 as 60fps. That also guarantees us smooth animations.
 
 5. Finally I haven't included the keyframes in the article. You'll have to 
 look them up in the repository. And I'd also recomend checking what is this
 keyframe business all about. <!-- add Link to https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes -->
 
->__Note__: "View transitions" are not ment only for your views.
+>"View transitions" are not ment only for your views.
 You can use this approach for UI elements residing in your view.
 
 ###Enough goofing around, time to code...
@@ -210,5 +219,12 @@ To put it simply:
 1. Get the links information.
 2. Get the view that the link resides in.
 3. Get the view that the link is pointing at.
-4. Animate the two views and all kinds of wizardry around that using
+4. ( Optional ) Prep the next view that we are going to show before we show it, by passing
+some functions as parameters for the animation function.
+5. Animate the two views and all kinds of wizardry around that using
 the information the link gives us.
+6. ( Optional ) Emit some custom event regarding the view change.
+
+{% highlight javascript linenos %}
+
+{% endhighlight %}

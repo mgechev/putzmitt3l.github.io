@@ -1,0 +1,145 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.view.blue {
+    background-color: #2384c6;
+}
+.view.red {
+    background-color: #ff0069;
+}
+.view.green {
+    background-color: #66f7e3;
+}
+
+
+/* Animation container for the views*/
+.view-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    perspective: 1200px;
+
+    -webkit-overlow-scrolling: touch;
+    overflow: hidden;
+}
+
+.view {
+    position: absolute;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
+    /* MUI IMPORTANTE: Do NOT use display: block/none for showing hiding pages*/
+    -webkit-transform: translate3d(-1000%,0,0);
+    -moz-transform: translate3d(-1000%,0,0);
+    transform: translate3d(-1000%,0,0);
+
+    /* for potential ios flickering */
+    /*-webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;*/
+}
+
+.view.current-view {
+    /* MUI IMPORTANTE: Do NOT use display for showing hiding views*/
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+.view.transition-view {
+    /* MUI IMPORTANTE: Do NOT use display for showing hiding views*/
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+/* Move to/from LEFT/RIGHT animations */
+.view-move-to-left {
+    -webkit-animation: moveToLeft .6s ease both;
+    animation: moveToLeft .6s ease both;
+}
+
+.view-move-from-left {
+    -webkit-animation: moveFromLeft .6s ease both;
+    animation: moveFromLeft .6s ease both;
+}
+
+.view-move-to-right {
+    -webkit-animation: moveToRight .6s ease both;
+    animation: moveToRight .6s ease both;
+}
+
+.view-move-from-right {
+    -webkit-animation: moveFromRight .6s ease both;
+    animation: moveFromRight .6s ease both;
+}
+
+/* key-frames for LEFT/RIGHT movement animations*/
+@-webkit-keyframes moveToLeft {
+    from {}
+    to {
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+@keyframes moveToLeft {
+    from {}
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes moveFromLeft {
+    from {
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+@keyframes moveFromLeft {
+    from {
+        transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes moveToRight {
+    from {}
+    to {
+        -webkit-transform: translateX(100%);
+    }
+}
+
+@keyframes moveToRight {
+    from {}
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@-webkit-keyframes moveFromRight {
+    from {
+        -webkit-transform: translateX(100%);
+    }
+}
+
+@keyframes moveFromRight {
+    from {
+        transform: translateX(100%);
+    }
+}
+
+/* EOF key-frames for LEFT/RIGHT movement animations*/

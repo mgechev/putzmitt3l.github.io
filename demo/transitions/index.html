@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JQM view transitions demo</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+</head>
+<body>
+<div class="view-container">
+    <div id="home-view" class="view blue current-view">
+        <h1>Home view</h1>
+        <!--
+            These links can house used for icon containers
+            or styled like icons etc.
+        -->
+        <div>
+            <a href="#" class="view-link" data-view-link-dest="second-view">Second view</a>
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas magna vitae libero aliquam, vestibulum egestas leo varius. Curabitur dapibus ante lorem. Aenean a turpis purus. Donec vel quam nec sem posuere bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas magna vitae libero aliquam, vestibulum egestas leo varius. Curabitur dapibus ante lorem.
+        </div>
+        <div>
+            <a href="#" class="view-link" data-view-link-dest="third-view" >Third view</a>
+        </div>
+    </div>
+    <div id="second-view" class="view red">
+        <h1>Second view</h1>
+        <!--
+            Note the View Transition data attribute.
+            This will help us further customise our view transitions
+            and of course the look and feel of our app.
+        -->
+        <div>
+            <a href="#" class="view-link" data-view-link-dest="home-view" data-view-transition="slidelefttoright">
+                Home view
+            </a>
+        </div>
+    </div>
+    <div id="third-view" class="view green">
+        <h1>Third view</h1>
+        <div>
+            <a href="#" class="view-link" data-view-link-dest="home-view" data-view-transition="slidelefttoright">
+                Home view
+            </a>
+        </div>
+    </div>
+</div>
+    <script type="text/javascript">
+        var viewportHeight = $(window).height(),
+            viewportWidth = $(window).width();
+        $('.view-container, .view').css('height', viewportHeight)
+                                    .css('width', viewportWidth);
+    </script>
+    <script type="text/javascript" src="navigation.js"></script>
+</body>
+</html>
